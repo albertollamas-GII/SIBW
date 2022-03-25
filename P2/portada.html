@@ -1,0 +1,115 @@
+<!--Declaración de tipo de documento-->
+<!DOCTYPE html>
+<html>
+<!--Establece metadatos de la web y la información mostrada en la pestaña del navegador-->
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Alberto Llamas" />
+    <!--Para que sea responsive-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Favicon de la página-->
+    <link rel="icon" href="static/images/favicon.png" />
+    <!--Inclusión de archivos css-->
+    <link rel="stylesheet" href="static/css/styles.css" />
+    <link rel="stylesheet" href="static/css/portada.css" />
+    <!--Enlace externo donde están las fuentes usadas en la página-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:900|Work+Sans:300" rel="stylesheet">
+    <title>INFOPETS</title>
+</head>
+
+<!--Cuerpo del documento-->
+<body>
+    <!--La cabecera contiene el logo, el nombre de la tienda y el menú de navegacion-->
+    <header class="cabecera">
+        <!--Contiene la imagen izquierda de la cabecera-->
+        <div class="container-logo">
+            <a href="portada.html">
+                <img src="static/images/logo.png" class="logo" />
+            </a>
+        </div>
+
+        <!--Titulo-->
+        <h1>INFOPETS</h1>
+
+        <!--Barra de navegación (menú)-->
+        <nav>
+            <a class="active" href="portada.html">Home</a>
+            <a href="#">Sobre Nosotros</a>
+            <a href="#">Contacta</a>
+            <a href="#">Adopta!</a>
+        </nav>
+    </header>
+
+    <!--Contenedor con productos y barra lateral-->
+    <div class="main">
+        <!--Contenedor de todos los productos-->
+        <div class="container-productos">
+            <div class="producto">
+                <h2>Piscina para perros</h2>
+                <a href="producto.html"><img src="static/images/piscina.jpg" class="piscina" /></a>
+            </div>
+            <div class="producto">
+                <h2>Maiz mordedor</h2>
+                <a href="producto.html"><img src="static/images/maiz.jpg" class="maiz" /></a>
+            </div>
+            <div class="producto">
+                <h2>Sillon para perro</h2>
+                <a href="producto.html"><img src="static/images/sillon.jpg" class="sillon" /></a>
+            </div>
+            <div class="producto">
+                <h2>Rastreador de mascotas</h2>
+                <a href="producto.html"><img src="static/images/rastreador.jpg" class="rastreador" /></a>
+            </div>
+            <div class="producto">
+                <h2>Casa para pajaros</h2>
+                <a href="producto.html"><img src="static/images/casa.jpg" class="casa" /></a>
+            </div>
+            <div class="producto">
+                <h2>Bebedor colibríes</h2>
+                <a href="producto.html"><img src="static/images/colibri.jpg" class="colibri" /></a>
+            </div>
+            <div class="producto">
+                <h2>Mochila portagatos</h2>
+                <a href="producto.html"><img src="static/images/gatos.jpg" class="gatos" /></a>
+            </div>
+            <div class="producto">
+                <h2>Pecera</h2>
+                <a href="producto.html"><img src="static/images/pecera.jpg" class="pecera" /></a>
+            </div>
+            <div class="producto">
+                <h2>Prenda para cobayas</h2>
+                <a href="producto.html"><img src="static/images/cobaya.jpg" class="cobaya" /></a>
+            </div>
+        </div> <!--Fin div container-productos-->
+
+        <!--Barra lateral con información auxiliar-->
+        <aside>
+            <ul>
+                <li><h3>Veterinario</h3><br>
+                    <a href="https://cvgranada.com/" target="_blank"><img src = "static/images/veterinario.jpg"> </a>
+                </li>
+                <li><h3>Blog</h3><br>
+                    <iframe width="250" height="150" src="https://www.youtube.com/embed/XMjpy-zJCKg"></iframe> 
+                </li>
+                <!--No pongo mapa de verdad porque por lo que he mirado hace falta javascript y hasta la siguiente practica no lo puedo meter-->
+                <li><h3>¿Donde nos encontramos?</h3><br>
+                    <a href="https://www.google.es/maps/" target="_blank">  <img src = "static/images/mapa.png"> </a>
+                </li>
+            </ul>
+        </aside>
+
+    </div> <!--Fin div main-->
+
+
+
+    <!--Pie de la página. Contiene información de Copyright y nombre del autor-->
+    <footer>
+        <p>Usando esta página web usted afirma haber leído y aceptado nuestros términos de uso y política de privacidad
+        </p><br> <!--Br indica salto de linea-->
+        <img src="static/images/copyright.png" class="Copyright" />
+        <p class="copyright-text">2022 - AlbertoLG @albertollamass </p>
+    </footer>
+    
+</body>
+
+</html>

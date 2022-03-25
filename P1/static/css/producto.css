@@ -1,0 +1,140 @@
+/* Estilos para los eventos de la pagina de producto */
+
+/*Estetica del div con la informacion del producto*/
+.container-detallado {
+    width:100%;
+}
+
+.container-detallado li {
+    font-size: 22px;
+    text-align: justify;
+    margin-top: 40px;
+    margin-left: 10px;
+    margin-right: 100px;
+}
+
+.container-detallado li b{
+    font-weight: bolder;
+}
+
+.container-detallado h1,h2{
+    text-align: justify;
+    margin: 10px;
+}
+
+.container-imagenes img{
+    width: 300px;
+    height: auto;
+    margin-bottom: 10%;
+}
+
+.container-imagenes img:hover{
+    transform: scale(1.1,1.1);
+}
+
+.container-imagenes{
+    float: right;
+    width: 40%;
+    margin-left: 30px;
+}
+
+/*Estetica botones de redes sociales*/
+.social-media{
+    width: auto;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.fa {
+    padding: 10px;
+    font-size: 30px;
+    width: 20px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+}
+  
+.fa:hover {
+      opacity: 0.7;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+
+.fa-instagram {
+    background: #125688;
+    color: white;
+}
+.fa-print {
+      background-color: rgb(66, 66, 125);
+      color: white;
+}
+
+/* Para que la página se adapte a los cambios de ventana*/
+@media screen and (max-width: 1200px)  {
+
+    .main{
+        display:inline-block; /*Para poder tener un width y height determinados y que me respete los margenes*/
+    }
+
+    aside {
+        width: 80% !important;
+        margin-right: 17% !important;
+        float:right !important;
+    }
+
+    aside li h3{
+        font-size: 1.5em;
+        margin-left: 20%;
+    }
+
+    .container-detallado p {
+        margin-right: 50px;
+    }
+
+    aside li iframe{
+        margin-left: 50px;
+        margin-top: 50px;
+        width: 500px;
+        height:300px;
+    }
+}
+/*Ipad*/
+@media screen and (max-width: 700px) {
+
+    .container-imagenes {
+        width: 100%;
+        text-align: center;
+        margin: 0%;
+        padding: 0%;
+    }
+    .container-detallado h1 {
+        font-size: 1.75em;
+    }
+    .container-imagenes img{
+        width: 70%;
+    }
+    .container-detallado li {
+        font-size: 16px;
+        width: 100%;
+        margin: 0%;
+        padding: 0%;
+        margin-bottom: 20px;
+    }
+    aside{
+        width: 900%
+    }
+    aside li iframe{
+        margin-left: 0px;
+        width: 450px;
+        height:300px;
+    }
+}
