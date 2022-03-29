@@ -19,6 +19,9 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:900|Work+Sans:300" rel="stylesheet">
     <!--Enlace al archivo JavaScript-->
     <script src="static/js/comentarios.js" async></script>
+    <script src="static/js/mapa.js" async></script>
+    <!--Enlace a API de Google que permite poner el mapa-->
+    
     <title>INFOPETS</title>
 </head>
 
@@ -166,7 +169,8 @@
                 <!--No pongo mapa de verdad porque por lo que he mirado hace falta javascript y hasta la siguiente practica no lo puedo meter-->
                 <li>
                     <h3>¿Donde nos encontramos?</h3><br>
-                    <a href="https://www.google.es/maps/" target="_blank"> <img src="static/images/mapa.png"> </a>
+                    <div id = "map"></div>
+                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap"></script>
                 </li>
             </ul>
             <!--Contenedor con botones redes sociales + imprimir-->

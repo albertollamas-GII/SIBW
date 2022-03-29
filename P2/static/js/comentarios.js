@@ -23,6 +23,8 @@ function bindFunctions() {
 
 }
 
+
+
 function mostrarComentarios() {
     //console.log(commentSection.style.display) Prueba para ver qué soltaba
 
@@ -112,7 +114,7 @@ function enviarComentarios() {
 
 //Funcion para validar el email con una expresion regular
 function validateEmail(email) {
-    var re = /\S+@\S+\.\S+/;
+    var re = /^[^\s@]+@[^\s@]+$/;
     return re.test(email);
 }
 

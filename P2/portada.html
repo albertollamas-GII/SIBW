@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="static/css/portada.css" />
     <!--Enlace externo donde están las fuentes usadas en la página-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:900|Work+Sans:300" rel="stylesheet">
+    <!--Enlace a externo de JavaScript-->
+    <script src="static/js/mapa.js" async></script>
     <title>INFOPETS</title>
 </head>
 
@@ -91,9 +93,11 @@
                 <li><h3>Blog</h3><br>
                     <iframe width="250" height="150" src="https://www.youtube.com/embed/XMjpy-zJCKg"></iframe> 
                 </li>
-                <!--No pongo mapa de verdad porque por lo que he mirado hace falta javascript y hasta la siguiente practica no lo puedo meter-->
-                <li><h3>¿Donde nos encontramos?</h3><br>
-                    <a href="https://www.google.es/maps/" target="_blank">  <img src = "static/images/mapa.png"> </a>
+                <li>
+                    <h3>¿Donde nos encontramos?</h3><br>
+                    <div id = "map"></div>
+                    <!--Enlace a la API de Google Maps-->
+                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap"></script>
                 </li>
             </ul>
         </aside>

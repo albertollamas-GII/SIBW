@@ -98,7 +98,25 @@
 
 .feedComentarios{
     margin-bottom: 2%;
+    
 }
+.container-comentarios{
+    animation-duration: 2s;
+    animation-name: slidein;
+}
+
+@keyframes slidein {
+    from {
+      margin-top: 30%;
+      width: 70%
+    }
+  
+    to {
+      margin-bottom: 0%;
+      width: 100%;
+    }
+  }
+
 .container-username{
     display: flex;
     margin-bottom: 10px;
