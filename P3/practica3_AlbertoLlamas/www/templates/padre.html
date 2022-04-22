@@ -1,0 +1,95 @@
+<!--Declaración de tipo de documento-->
+<!DOCTYPE html>
+<html>
+<!--Establece metadatos de la web y la información mostrada en la pestaña del navegador-->
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Alberto Llamas" />
+    <!--Para que sea responsive-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Favicon de la página-->
+    <link rel="icon" href="../images/favicon.png" />
+    <!--Inclusión de archivos css-->
+    {%block archivosCSS%}
+    <link rel="stylesheet" href="../css/styles.css" />
+    {%endblock%}    
+    <!--Enlace externo donde están las fuentes usadas en la página-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:900|Work+Sans:300" rel="stylesheet">
+    <!--Enlace a externo de JavaScript-->
+    {%block scripts%}{%endblock%}
+    <title>{%block titulo%}INFOPETS{%endblock%}</title>
+</head>
+
+<!--Cuerpo del documento-->
+
+<body>
+    {%block cabecera%}
+    <!--La cabecera contiene el logo, el nombre de la tienda y el menú de navegacion-->
+    <header class="cabecera">
+        <!--Contiene la imagen izquierda de la cabecera-->
+        <div class="container-logo">
+            <a href="index.php">
+                {%block logoHeader%}{%endblock%}
+            </a>
+        </div>
+
+        <!--Titulo-->
+        <h1>INFOPETS</h1>
+
+        <!--Barra de navegación (menú)-->
+        <nav>
+            {%block pagActiva%}
+            {%endblock%}
+        </nav>
+    </header>
+    {%endblock%}
+
+    <!--Contenedor con productos y barra lateral-->
+    <div class="main">
+        <!--Contenedor de todos los productos-->
+        {%block cuerpoGrande%} {%endblock%}
+        <!--Fin div container-productos-->
+
+        <!--Barra lateral con información auxiliar-->
+        
+        <aside>
+            {%block barraLateral%}
+            <ul>
+                <li>
+                    {%block firstImageLateral%} {%endblock%}
+                </li>
+                <li>
+                    <h3>Blog</h3><br>
+                    <iframe width="200" height="150" src="https://www.youtube.com/embed/XMjpy-zJCKg"></iframe>
+                </li>
+                <li>
+                    <h3>¿Donde nos encontramos?</h3><br>
+                    <div id="map"></div>
+                    <!--Enlace a la API de Google Maps-->
+                    <script
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap"></script>
+                </li>
+            </ul>
+            {%endblock%}
+
+        </aside>
+        
+    </div>
+    <!--Fin div main-->
+
+
+
+    <!--Pie de la página. Contiene información de Copyright y nombre del autor-->
+    {%block footer%}
+    <footer>
+        <p>Usando esta página web usted afirma haber leído y aceptado nuestros términos de uso y política de privacidad
+        </p><br>
+        <!--Br indica salto de linea-->
+        <img src="../images/copyright.png" class="Copyright" />
+        <p class="copyright-text">2022 - AlbertoLG @albertollamass </p>
+    </footer>
+    {%endblock%}
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+{%extends "padre.html"%}
+
+
+{%block archivosCSS%}
+{{parent()}}
+<link rel="stylesheet" href="../css/producto.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{%endblock%}
+   
+{%block scripts%}
+<script src="../js/comentarios.js" async></script>
+<script src="../js/mapa.js" async></script>
+{%endblock%}
+    
+{%block titulo%}
+    {{parent()}} > {{producto.nombreProducto}}
+{%endblock%}
+
+{%block logoHeader%}
+<img src="../images/logo.png" class="logo" />
+{%endblock%}
+
+
+{%block pagActiva%}
+<a href="index.php">Home</a>
+<a href="#">Sobre Nosotros</a>
+<a href="#">Contacta</a>
+<a href="#">Adopta!</a>
+{%endblock%}
+
+{%block cuerpoGrande%} 
+<div class="container-detallado">
+    
+    
+    <div class="container-imagenes">
+        {%for img in imagenes|slice(0,(imagenes|length-1))%}
+        <img src="{{img.src}}" class="{{img.class}}" />
+        {%endfor%}
+    </div>
+
+    
+    <h1>{{producto.nombreProducto}}</h1>
+    <h2>{{producto.marca}}</h2>
+    <h2>{{producto.precio}} €</h2>
+
+    <p>
+        {{producto.cuerpo}}
+    </p>
+
+    <!--Comentarios-->
+    <div class="div-boton">
+        <button type="button" id="mostrarComentarios" class="boton">Mostrar Comentarios</button>
+    </div>
+
+    <div class="container-comentarios" id="seccionComentarios">
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="cerrar"> &times; </span>
+                <h3> ERROR AL ENVIAR COMENTARIO: INTRODUCE LOS DATOS CORRECTAMENTE </h3>
+            </div>
+        </div>
+        
+        <div class="feedComentarios" id="feedComentarios">
+            <div id="palabrasBan">{%for i in 0..baneadas|length-1%}{%if i < baneadas|length-1%}{{baneadas[i]}}-{%else%}{{baneadas[i]}}{%endif%}{%endfor%}</div>
+            {%for comentario in comentarios%}
+            <div class="comentarioPublicado">
+                <div class="container-username">
+                    <img src="../images/userPhoto.jpg">
+                    <p class="autor">{{comentario.autor}}</p>
+                </div>
+                <p class="fecha">{{comentario.fecha}}</p>
+                <p class="text">{{comentario.cuerpo}}</p>
+            </div>
+            {%endfor%}
+        </div>
+
+        <hr class="divider">
+
+        <h2>Escribir una opinión</h2>
+
+        <form class="nuevoComentario" id="nuevoComentario">
+            <label for="username" class="username">
+                <h4>Escoja su nombre público(*):</h4>
+                <p id="usuarioErroneo" class="usuarioErroneo"></p>
+            </label><br>
+            <input type="text" id="username" name="username" class="textField"><br>
+            <hr class="dividerT">
+            <label for="email" class="email">
+                <h4 id="h4mail">Email(*):</h4>
+                <p id="emailErroneo" class="emailErroneo"></p>
+            </label><br>
+            <input type="text" id="email" name="email" class="textField">
+            <hr class="dividerT">
+            <textarea id="comentario" name="comentario" placeholder="Escribe tu comentario aquí...(*)"
+                class="comentario"></textarea><br>
+            <button type="button" id="enviarComentario" class="botonEnviar">Enviar Comentario</button>
+        </form>
+    </div>
+
+</div>
+{%endblock%}
+   
+{%block firstImageLateral%}
+    {%for img in imagenes|slice((imagenes|length-1),imagenes|length)%}
+    <h3>{{img.nombreImagen}}</h3><br>
+    <a target="_blank"
+        href="{{img.href}}">
+        <img src="{{img.src}}"> </a>
+    {%endfor%}
+{%endblock%}
+
+
+{%block barraLateral%}
+    {{parent()}}
+
+    <div class="social-media">
+        <a href="https://www.facebook.com" target="_blank" class="fa fa-facebook"></a>
+        <a href="https://www.twitter.com" target="_blank" class="fa fa-twitter"></a>
+        <a href="http://www.instagram.com" target="_blank" class="fa fa-instagram"></a>
+        <a href="producto-imprimir.php?pr={{producto.idProducto}}" target="_blank" class="fa fa-print"></a>
+    </div>
+{%endblock%}
