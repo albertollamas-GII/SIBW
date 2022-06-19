@@ -1,0 +1,118 @@
+/* Estilos para los eventos de la portada*/
+
+/* Estetica de div con los productos*/
+.container-productos{
+    text-align: left;
+    width: 100%;
+}
+
+/*Estetica div del producto*/
+.producto{
+    width: 30%;
+    text-align: center;
+    padding: 1%;
+    display: inline-block;
+}
+
+.producto img{
+    width: 70%;
+    height: 70%;
+    border-radius: 25px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.producto img:hover{
+    transform: scale(1.1);
+}
+.modifBoton {
+    margin-top: 2%;
+    font-family: 'Work Sans', sans-serif;
+    padding: 5%;
+    color: black;
+    border: solid;
+    border-color: black;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: 800;
+    align-items: center;
+    background-color: rgba(100, 148, 237, 0.548);
+    margin-right: 2%;
+}
+
+.producto a{
+    color: rgb(0, 0, 0);
+    text-decoration: solid;
+}
+
+.busqueda{
+    border-radius: 20px;
+    border-color: black;
+    border: solid;
+    padding: 2%;
+}
+.searchForm{
+    align-items: center;
+}
+.results{
+    text-align: center;
+}
+
+/* Para que la página se adapte a los cambios de ventana*/
+@media screen and (max-width: 1200px) {
+    aside{
+        margin-right: 0%;
+        width: 30%;
+        float: right;
+    }
+    .main{
+        display:flex;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .container-productos{
+        width: 100%;
+    }
+
+    .producto{
+        width: 40%;
+        margin-left: 5%;
+    }
+
+    .producto img{
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .producto img{
+        width: 80%;
+        margin-top: 20px;
+        margin-bottom: 70px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .container-productos{
+        width: 100%;
+    }
+
+    .producto{
+        width: 50%;
+        margin-left: 25%;
+    }
+
+    .producto img{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .main{
+        display: inline-block;
+    }
+    aside{
+        width: 100%;
+    }
+}

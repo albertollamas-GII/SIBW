@@ -1,0 +1,65 @@
+{%extends "padre.html"%}
+
+{%block archivosCSS%}
+{{parent()}}
+<link rel="stylesheet" href="../css/addProducto.css" />
+{%endblock%}
+
+{%block scripts%}
+
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+{%endblock%}
+
+{%block titulo%}
+{{parent()}} > Añadir Producto
+{%endblock%}
+
+
+{%block logoHeader%}
+<img src="../images/logo.png" class="logo" />
+{%endblock%}
+
+
+{%block pagActiva%}
+<a href="index.php">Home</a>
+<a href="#">Sobre Nosotros</a>
+{{parent()}}
+{%endblock%}
+
+{%block cuerpoGrande%}
+<h1>Añadir producto</h1>
+<div class="product">
+    <form action="addProducto.php" method="post" enctype="multipart/form-data">
+        <label for="nombreProd">Nombre Producto: </label> <input type="text" id="nombreProd" name="nombreProd"
+            value=""><br>
+        <label for="marca">Marca: </label> <input type="text" id="marca" name="marca" value=""><br>
+        <label for="precio">Precio</label> <input type="text" id="precio" name="precio" value=""><br>
+        <label class="labelCuerpo" for="cuerpo">Cuerpo: </label> <textarea type="text" id="cuerpo" name="cuerpo">
+        </textarea><br>
+
+        <div class="imagenes">
+            <div class="tituls">
+                <h3>Imagenes producto: </h3>
+            </div>
+            <input type="file" id="imagenesProducto" name="imagenesProducto"><br>
+        </div>
+
+        <div class="imagenes">
+            <h3>Imagen Portada: </h3>
+            <input type="file" id="imagenPortada" name="imagenPortada"><br>
+        </div>
+
+        <div class="etiquetas">
+            <h3>Etiquetas:</h3>
+            <h4><label for="etiquetas" id="labelEtiquetas">Añadir Etiquetas (separa con comas si quieres añadir más de
+                    una):</label></h4><br>
+            <input type="text" id="etiquetas" name="etiquetas" />
+        </div>
+        <div class="botones">
+            <button type="submit" class="modifBoton">Añadir producto</button>
+            <button type="button" class="cancelBoton" onclick="location.href='index.php'">Cancelar</button>
+        </div>
+    </form>
+
+</div>
+{%endblock%}

@@ -1,0 +1,93 @@
+{%extends "padre.html"%}
+
+{%block archivosCSS%}
+{{parent()}}
+<link rel="stylesheet" href="../css/editProducto.css" />
+{%endblock%}
+
+{%block scripts%}
+
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+{%endblock%}
+
+{%block titulo%}
+{{parent()}} > Editar Producto
+{%endblock%}
+
+
+{%block logoHeader%}
+<img src="../images/logo.png" class="logo" />
+{%endblock%}
+
+
+{%block pagActiva%}
+<a href="index.php">Home</a>
+<a href="#">Sobre Nosotros</a>
+{{parent()}}
+{%endblock%}
+
+{%block cuerpoGrande%}
+<h1>Editar producto</h1>
+<div class="product">
+    <h2>{{producto.nombreProducto}}</h2>
+    <form action="editProducto.php?pr={{idPr}}" method="post" enctype="multipart/form-data">
+        <label for="nombreProd">Nombre Producto: </label> <input type="text" id="nombreProd" name="nombreProd" 
+            value = "{{producto.nombreProducto}}"><br>
+        <label for="marca">Marca: </label> <input type="text" id="marca" name="marca"
+            value={{producto.marca}}><br>
+        <label for="precio">Precio</label> <input type="text" id="precio" name="precio"
+            value={{producto.precio}}><br>
+        <label class="labelCuerpo" for="cuerpo">Cuerpo: </label> <textarea type="text" id="cuerpo" name="cuerpo" >
+            {{producto.cuerpo}}
+        </textarea><br>
+
+        {%if producto.publicado == 1%} <label class="label-published">Publicar producto <input type="checkbox" id="published" class="published" name="tickeado" checked></label>{%endif%}
+        {%if producto.publicado == 0%} <label class="label-published">Publicar producto<input type="checkbox" id="published" class="published" name="tickeado" ></label>{%endif%}
+
+        <div class="imagenes">
+            <div class="tituls">
+                    <h3>Imagenes producto: </h3>
+                </div>
+            {%for img in imagenes|slice(0,(imagenes|length-1))%}
+            <img src="{{img.src}}" class="{{img.class}}" />
+                        <input type="file" id="imagenesProducto" name="imagenesProducto"><br><br>
+
+            {%endfor%} <br>
+                <h3>Añadir otra imagen:</h3>
+            <input type="file" id="imagenesProducto" name="addImagenesProducto"><br><br>
+        </div>
+        
+        <div class="imagenes">
+            <h3>Cambiar Imagen Portada: </h3>
+            {%for img in imagenesPortada|slice(0,(imagenesPortada|length-1))%}
+            {%if img.idImagen == idPr%}
+            <img src="{{img.src}}" class="{{img.class}}" />
+            {%endif%}
+            {%endfor%} <input type="file" id="imagenPortada" name="imagenPortada"><br><br>
+
+        </div>
+
+        <div class="etiquetas">
+            <h3>Etiquetas:</h3>
+            <div id="tags">
+                {%for i in 0..etiquetas|length-1%}
+                
+                <p class="tag">#{{etiquetas[i]}} <a title="Remove Tag" id="removeTagIcon"
+                                        href={{"deleteEtiqueta.php?tag=#{etiquetas[i]}&pr=#{producto.idProducto}"}}>Eliminar etiqueta</a></p>
+                
+                {%endfor%}
+                
+                
+            </div>
+            
+            <br><h4><label for="etiquetas" id="labelEtiquetas">Añadir Etiquetas (separa con comas si quieres añadir más de una):</label></h4><br>
+            <input type="text" id="etiquetas" name="etiquetas" />
+        </div>
+        <div class="botones">
+        <button type="submit" class="modifBoton">Modificar producto</button>
+        <button type="button" class="cancelBoton" onclick="location.href='index.php'">Cancelar</button>
+        </div>
+    </form>
+
+</div>
+{%endblock%}

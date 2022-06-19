@@ -1,0 +1,46 @@
+{%extends "padre.html"%}
+
+{%block archivosCSS%}
+{{parent()}}
+<link rel="stylesheet" href="../css/login.css" />
+{%endblock%}
+{%block scripts%}<script src="../js/login.js" async></script>{%endblock%}
+
+{%block logoHeader%}
+<img src="../images/logo.png" class="logo" />
+{%endblock%}
+
+{%block titulo%}
+{{parent()}} > Iniciar Sesion
+{%endblock%}
+
+{%block pagActiva%}
+<a href="index.php">Home</a>
+<a href="#">Sobre Nosotros</a>
+<a class = "active" href="login.php">Iniciar Sesion</a>
+{%endblock%}
+
+{%block cuerpoGrande%} 
+    <h1>Identificate en INFOPETS</h1>
+    <h4>Al identificarte, vas a poder escribir reseñas de tus productos favoritos</h4>
+<div class="login-page">
+
+    <div class="form">
+        
+        <form class="formularioRegistro" id = "formularioRegistro" action="register.php" method="post">
+            <input type="texto" placeholder="nombre de usuario" name ="userName" />
+            <input type="contrasenia" placeholder="contraseña" name ="passwd"/>
+            <input type="text" placeholder="Direccion de correo" name = "email"/>
+            <button id = "crearUsuario"> Crear usuario</button>
+            <p class="message"> ¿Ya estas registrado/a? <a href = "#" id = "cambioAInicio"> Iniciar sesion </a></p>
+        </form>
+
+        <form class="formularioInicio" id = "formularioInicio" action="login.php" method="post">
+            <input type="text" placeholder="nombre de usuario" name ="userName"/>
+            <input type="password" placeholder="contraseña" name="passWord" />
+            <button>Iniciar sesion</button>
+            <p class="message">¿Aun no estas registrado? <a href = "#" id = "cambioARegistro">Crea una cuenta</a></p>
+        </form>
+    </div>
+</div>
+{%endblock%}

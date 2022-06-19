@@ -1,0 +1,48 @@
+{%extends "padre.html"%}
+
+{%block archivosCSS%}
+{{parent()}}
+<link rel="stylesheet" href="../css/editComentario.css" />
+{%endblock%}
+
+{%block scripts%}
+
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+{%endblock%}
+
+{%block titulo%}
+{{parent()}} > Editar Comentario
+{%endblock%}
+
+
+{%block logoHeader%}
+<img src="../images/logo.png" class="logo" />
+{%endblock%}
+
+
+{%block pagActiva%}
+<a href="index.php">Home</a>
+<a href="#">Sobre Nosotros</a>
+{{parent()}}
+{%endblock%}
+
+{%block cuerpoGrande%}
+<h1>Editar comentario</h1>
+<div class="product">
+        <label for="nombreAutor">Autor: </label> <input type="text" id="nombreAutor" name="nombreAutor"
+            value="{{coment.usname}}" disabled><br>
+        <label for="fecha">Fecha: </label> <input type="text" id="fecha" name="fecha" value={{coment.fecha}} disabled><br>
+        
+        <form action={{"editComentario.php?pr=#{coment.idProducto}&id=#{coment.idComentario}"}} method="post" enctype="multipart/form-data">
+        <label class="labelCuerpo" for="cuerpo">Cuerpo: </label> <textarea type="text" id="cuerpo" name="cuerpo">
+            {{coment.cuerpo}}
+        </textarea><br>
+
+        <div class="botones">
+            <button type="submit" class="modifBoton">Modificar comentario</button>
+            <button type="button" class="cancelBoton" onclick={{"location.href='producto.php?pr=#{idPr}'"}}>Cancelar</button>
+        </div>
+    </form>
+
+</div>
+{%endblock%}

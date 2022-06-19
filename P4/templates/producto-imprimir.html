@@ -1,0 +1,47 @@
+{%extends "padre.html"%}
+
+
+{%block archivosCSS%}
+{{parent()}}
+<link rel="stylesheet" href="../css/producto-imprimir.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{%endblock%}
+
+
+{%block titulo%}
+{{parent()}} > {{producto.nombreProducto}}
+{%endblock%}
+
+
+
+{%block pagActiva%}
+<a href="index.php">Home</a>
+<a href="#">Sobre Nosotros</a>
+<a href="#">Contacta</a>
+<a href="#">Adopta!</a>
+{%endblock%}
+
+{%block logoHeader%}
+<img src="../images/logo2.png" class="logo" />
+{%endblock%}
+
+{%block cuerpoGrande%}
+<div class="container-detallado">
+    <div class="container-imagenes">
+        {%for img in imagenes%}
+        <img src="{{img.src}}" class="{{img.class}}" />
+        {%endfor%}
+    </div>
+
+
+    <h1>{{producto.nombreProducto}}</h1>
+    <h2>{{producto.marca}}</h2>
+    <h2>{{producto.precio}} €</h2>
+
+    <p>
+        {{producto.cuerpo}}
+    </p>
+
+    
+{%endblock%}
+

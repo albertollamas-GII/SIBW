@@ -1,0 +1,57 @@
+{%extends "padre.html"%}
+    
+    {%block archivosCSS%}
+    {{parent()}}
+        <link rel="stylesheet" href="../css/portada.css" />
+    {%endblock%}
+    
+    {%block scripts%}
+        <script src="../js/mapa.js" async></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="../js/busqueda.js" defer></script>
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    {%endblock%}
+
+    {%block titulo%}
+        {{parent()}} > Home
+    {%endblock%}
+
+
+    {%block logoHeader%}
+        <img src="../images/logo.png" class="logo" />
+    {%endblock%}
+
+
+    {%block pagActiva%}
+        <a class="active" href="index.php">Home</a>
+        <a href="#">Sobre Nosotros</a>
+        {{parent()}}
+    {%endblock%}
+
+    {%block cuerpoGrande%}
+
+        <div class="container-productos">
+            {%for img in imagenes|slice(0,length) %}
+            <div class="producto">
+                <h2>{{img.nombreImagen}}</h2>
+                <a href={{img.href}}><img src={{img.src}} class="{{img.class}}"></a>
+            </div>
+            {%endfor%}
+            
+            {%if user.rango >= 3%}
+            <div class="producto">
+                <button class="modifBoton"><a href="addProducto.php">Añadir Producto <i class="fas fa-plus-square"></i></a></button>
+            </div>
+            {%endif%}
+        </div>
+    {%endblock%}
+
+
+    {%block firstImageLateral%}
+        <h3>Búsqueda de productos</h3>
+        <form class="searchForm">
+            <input id="barraBusqueda" class = "busqueda" type="text" placeholder="Search" />
+            <ul id="results" class="results"></ul>
+        </form>
+    {%endblock%}
+

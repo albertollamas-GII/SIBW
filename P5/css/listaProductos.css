@@ -1,0 +1,44 @@
+aside {
+    display: none;
+}
+
+.main {
+    display: block;
+    text-align: center;
+}
+
+.productList {
+    list-style: none;
+    margin-top: 3%;
+    border: solid;
+    border-radius: 10px ;
+    background-color:  rgba(208, 255, 198, 0.774);
+    font-size: large;
+    text-align: center;
+    align-items: center;
+    display: block;
+}
+
+.producto{
+    width: 30%;
+    text-align: center;
+    padding: 2%;
+    display: block;
+    border-radius: 20px;
+    border: dashed;
+    margin: 3%;
+    margin-left: 33%;
+}
+
+.producto img{
+    width: 70%;
+    height: 70%;
+    border-radius: 25px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.producto img:hover{
+    transform: scale(1.1);
+}
+

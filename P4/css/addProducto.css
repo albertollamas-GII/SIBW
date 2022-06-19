@@ -1,0 +1,113 @@
+aside {
+    display: none;
+}
+
+.main {
+    display: block;
+    text-align: left;
+}
+
+.product {
+    list-style: none;
+    margin-top: 3%;
+    border: solid;
+    border-radius: 10px ;
+    background-color:  rgba(208, 255, 198, 0.774);
+    font-size: large;
+    width: 60%;
+    padding: 3%;
+}
+
+
+.product form {
+    padding-top: 4% ;
+    align-items: right;
+}
+
+input[type=text]{
+    height:auto ;
+    background: whitesmoke;
+    margin-left: 10%;
+    padding: 1%;
+    border-color: black;
+    border-radius: 5px;
+    font-family: 'Work Sans', sans-serif;
+    width: 20%;
+    text-align: left;
+}
+#marca {
+    margin-left: 23%;
+    margin-top: 5%;
+
+}
+
+.tituls {
+    display: block;
+    margin-top: 4%;
+}
+#precio{
+    margin-left: 23.5%;
+    margin-top: 5%;
+
+}
+
+.labelCuerpo {
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+#cuerpo{
+    width: 60% !important;
+    overflow: scroll;
+    height: 200px;
+        margin-left: 22%;
+    margin-top: 5%;
+    background: whitesmoke;
+    padding: 1%;
+    border-color: black;
+    border-radius: 5px;
+    font-family: 'Work Sans', sans-serif;
+    text-align: left;
+}
+.imagenes{
+    display: block;
+    align-items: center;
+    margin: 5%;
+    margin-left: 0%;
+}
+
+.modifBoton {
+    margin-top: 6%;
+    font-family: 'Work Sans', sans-serif;
+    padding: 2%;
+    color: black;
+    border: solid;
+    border-color: black;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 800;
+    background-color: rgba(100, 148, 237, 0.637);
+    margin-bottom: 3%;
+}
+.botones {
+    display: flex;
+}
+.cancelBoton {
+    margin-top: 6%;
+    font-family: 'Work Sans', sans-serif;
+    padding: 2%;
+    color: black;
+    border: solid;
+    border-color: black;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 800;
+    background-color: rgba(237, 121, 100, 0.637);
+    margin-bottom: 3%;
+    margin-left: 3%;
+}
+
+#etiquetas {
+    margin-left: 0% !important;
+    margin-top: 1%;
+}

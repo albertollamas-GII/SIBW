@@ -1,0 +1,58 @@
+{%extends "padre.html"%}
+
+{%block archivosCSS%}
+{{parent()}}
+<link rel="stylesheet" href="../css/listaComentarios.css" />
+{%endblock%}
+
+{%block scripts%}
+
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+{%endblock%}
+
+{%block titulo%}
+{{parent()}} > Gestor Comentarios
+{%endblock%}
+
+
+{%block logoHeader%}
+<img src="../images/logo.png" class="logo" />
+{%endblock%}
+
+
+{%block pagActiva%}
+<a href="index.php">Home</a>
+<a href="#">Sobre Nosotros</a>
+{{parent()}}
+{%endblock%}
+
+{%block cuerpoGrande%}
+<h1>Gestión de Comentarios</h1>
+<div class="comentList">
+
+    {%for comentario in comentarios%}
+
+    <div class="comentarioPublicado">
+        <div class="container-username">
+            <img src="../images/userPhoto.jpg">
+            <p class="autor">{{comentario.usname}}</p>
+            {%if user.rango>=2%}
+            <div class="editDeleteComent">
+                <button class="modifBotonComent"><a
+                        href={{"editComentario.php?id=#{comentario.idComentario}&pr=#{comentario.idProducto}"}}><i
+                            class='far fa-edit'></i></a></button>
+                <button class="modifBotonComent"><a
+                        href={{"editComentario.php?id=#{comentario.idComentario}&pr=#{comentario.idProducto}&rmv"}}><i
+                            class='far fa-trash-alt'></i></a></button>
+            </div>
+            {%endif%}
+        </div>
+        <p class="fecha">{{comentario.fecha}}</p>
+        <p class="text">{{comentario.cuerpo}}</p>
+    </div>
+    {%endfor%}
+
+    
+
+</div>
+{%endblock%}

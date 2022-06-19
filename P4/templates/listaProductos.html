@@ -1,0 +1,36 @@
+{%extends "padre.html"%}
+
+{%block archivosCSS%}
+{{parent()}}
+<link rel="stylesheet" href="../css/listaProductos.css" />
+{%endblock%}
+
+{%block titulo%}
+{{parent()}} > Gestor Productos
+{%endblock%}
+
+
+{%block logoHeader%}
+<img src="../images/logo.png" class="logo" />
+{%endblock%}
+
+
+{%block pagActiva%}
+<a href="index.php">Home</a>
+<a href="#">Sobre Nosotros</a>
+{{parent()}}
+{%endblock%}
+
+{%block cuerpoGrande%}
+<h1>Gestión de Productos</h1>
+<div class="productList">
+
+    {%for img in productos|slice(0,length) %}
+    <div class="producto">
+        <h3>{{img.nombreImagen}}</h3>
+        <a href={{img.href}}><img src={{img.src}} class="{{img.class}}"></a>
+    </div>
+    {%endfor%}
+
+</div>
+{%endblock%}

@@ -1,0 +1,265 @@
+/* Estilos para los elementos comunes (letra, body, cabecera, main, aside y pie de página) */
+*{
+    margin: 0%;
+    color: rgb(0, 0, 0);
+}
+/* Estetica cuerpo y headings*/
+body{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: whitesmoke;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 100;
+    
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+}
+
+/* Estetica cabecera / header */
+.container-logo{
+    width:15%;
+}
+
+.cabecera{
+    padding-top: 0%;
+    padding-bottom: 1%;
+    font-family: "Ubuntu Mono", sans-serif;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items:center;
+    background-color: rgb(91, 125, 199);
+}
+
+.cabecera h1{
+    font-size: 4em;
+    width: 50%;
+    margin-right: 30%;
+    margin-left: 5%;
+}
+
+.cabecera img:hover{
+    transform: scale(1.1);
+}
+
+.cabecera p{
+    display: inline;
+    padding: 1%;
+    text-align: center;
+}
+
+.logo{
+    float: left;
+    width: 70%;
+    margin-left: 10%;
+    margin-top: 7%;
+}
+
+/*Estetica navbar header*/
+nav{
+    width: 70%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    color: black;
+    padding: 4%;
+    font-size: 17px;
+    font-weight:700 ;
+    text-decoration: none;
+    text-align: center;
+}
+
+nav a:hover {
+    background-color: rgb(140, 165, 235);
+    color: white;
+}
+
+nav a.active {
+    background-color: #3e32e4;
+    color: white;
+}
+
+/* Estetica cuerpo principal y barra lateral */
+.main{
+    display: flex;  
+    font-weight: bold;
+    text-align: center;
+    padding: 1%;
+    margin: 20px;
+}
+
+
+aside {
+    width: 30%;
+    text-align: center;
+    border-style: solid;
+    border-radius: 25px;
+    margin: 20px;
+    box-shadow: 10px 10px;
+    font-weight: 900;
+}
+
+aside li{
+    padding-right: 20%;
+    padding-top: 20%;
+    list-style-type: none;
+}
+
+aside li h3{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+aside li img {
+    margin-top: 30px;
+    width:100%;
+    border-radius: 25px;
+}
+
+aside li img:hover {
+    transform: scale(1.1,1.1);
+}
+
+#map {
+	height: 300px;
+	width: 100%;
+}
+
+
+/*Estetica footer*/
+footer{
+    text-align: center;
+    margin-top: 2%;
+    background-color: rgb(30,31,40);
+    padding: 5%;
+    
+}
+
+footer img{
+    display: inline;
+    width: 0.75%;
+}
+
+footer p{
+    display:inline-flex;
+    color:white
+}
+
+/* Para que la página se adapte a los cambios de ventana*/
+@media screen and (max-width: 1550px) {
+    nav {
+      width: 100%;
+    }
+    nav a {
+        margin: 3%;
+        padding: 2%;
+        font-size: 15px;
+    }
+    .cabecera h1 {
+        font-size: 40px;
+    }
+    .logo {
+        width: 100%;
+        margin-left: 15%;
+        margin-top: 10%;
+    }
+}
+
+@media screen and (max-width: 1060px) {
+    nav a {
+        font-size: 13px;
+    }
+    .cabecera h1 {
+        margin-right: 15%;
+    }
+    aside li iframe{
+        width: 100px;
+        height:50px;
+    }
+}
+
+/*Ipad*/
+@media screen and (max-width: 860px) {
+    nav a {
+        font-size: 10px;
+    }
+    .cabecera h1 {
+        margin-right: 10%;
+    }
+
+    aside li{
+        padding-left: 0%;
+        margin-right: 20px;
+    }
+
+    aside li img{
+        width: 120%;
+    }
+
+    footer img{
+        width: 2%;
+    }
+}
+
+/*Ipad*/
+@media screen and (max-width: 700px) {
+    .cabecera{
+        display: inline-block;
+        padding: 5%;
+    }
+
+    .cabecera h1{
+        float: right;
+        margin-right: 20%;
+        margin-bottom: 5%;
+    }
+
+    nav {
+        display: flex;
+        margin-left: 3%;
+    }
+
+    nav a {
+        font-size: 16px;
+    }
+
+   .main{
+        display: inline-block;
+    }
+
+    aside{
+        width: 100%;
+        padding: 0%;
+        margin: 0%;
+    }
+
+    aside h3{
+        font-size: 30px;
+    }
+
+    aside li iframe{
+        width: 500px;
+        height:300px;
+    }
+
+    footer img{
+        width: 4%;
+    }
+}
+
+/*Telefono movil*/
+@media screen and (max-width: 440px) {
+    nav {
+        margin-left: 0%;
+    }
+
+    nav a {
+        font-size: 10px;
+    }
+}

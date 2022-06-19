@@ -1,0 +1,75 @@
+{%extends "padre.html"%}
+
+{%block archivosCSS%}
+{{parent()}}
+<link rel="stylesheet" href="../css/listaUsuarios.css" />
+{%endblock%}
+
+{%block titulo%}
+{{parent()}} > Gestor Usuarios
+{%endblock%}
+
+
+{%block logoHeader%}
+<img src="../images/logo.png" class="logo" />
+{%endblock%}
+
+
+{%block pagActiva%}
+<a href="index.php">Home</a>
+<a href="#">Sobre Nosotros</a>
+{{parent()}}
+{%endblock%}
+
+{%block cuerpoGrande%}
+    <h1>Gestión de Usuarios</h1>
+    <div class="userList">
+        <div class="titulo">
+        <h3>Nombre de usuario</h3><h3 class="tipo">Cambiar tipo de Usuario</h3>
+        </div>
+        {%for usuario in usuarios|slice(1,length)%}
+
+        <li class="usuarioPers">
+            {%if not usuario.superusuario == 1%}
+            <form class="formu" method="post" action="listaUsuarios.php" name="as">
+            <div class="nombre"><input type="text" name="nick" value="{{usuario.usname}}" class="oculta">{{usuario.usname}} - {%if usuario.rango == 4%}Superusuario{%endif%}{%if usuario.rango == 3%}Gestor del sitio{%endif%}{%if usuario.rango ==
+            2%}Moderador{%endif%}{%if usuario.rango == 1%}Usuario{%endif%}</div> 
+            <div class="select">
+            <select name="cambio" class="cambioRol">
+                <option value="default" selected>---</option>
+                <option value="Superusuario">Superusuario</option>
+                <option value="Gestor de sitio">Gestor de sitio</option>
+                <option value="Moderador">Moderador</option>
+                <option value="Usuario">Usuario</option>
+            </select>
+            <button type="submit" value="Modificar datos" class="modifBoton">Modificar datos</button>
+            </div>
+            </form>
+
+            <form class="formu" method="post" action="listaUsuarios.php" name="as">
+            {%elseif usuario.usname != user.usname%}
+            <div class="nombre"> <input type ="text" name="nick" value="as"> - {%if usuario.rango == 4%}Superusuario{%endif%}{%if usuario.rango == 3%}Gestor
+                del sitio{%endif%}{%if usuario.rango ==
+                2%}Moderador{%endif%}{%if usuario.rango == 1%}Usuario{%endif%}</div>
+            <div class="select">
+                <select name="cambio" class="cambioRol">
+                    <option value="default" selected>---</option>
+                    <option value="Superusuario">Superusuario</option>
+                    {%if contador > 1%}
+                    <option value="Gestor de sitio">Gestor de sitio</option>
+                    <option value="Moderador">Moderador</option>
+                    <option value="Usuario">Usuario</option>
+                    {%endif%}
+                </select>
+                <button type="submit" value="Modificar datos" class="modifBoton">Modificar datos</button>
+            </div>
+            </form>
+            {%endif%}
+        </li>
+        
+        {%endfor%}
+        
+        
+        
+    </div>
+{%endblock%}

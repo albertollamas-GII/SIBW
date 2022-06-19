@@ -1,0 +1,109 @@
+{%extends "padre.html"%}
+
+{%block archivosCSS%}
+{{parent()}}
+<link rel="stylesheet" href="../css/perfil.css" />
+{%endblock%}
+
+{%block titulo%}
+{{parent()}} > Perfil
+{%endblock%}
+
+
+{%block logoHeader%}
+<img src="../images/logo.png" class="logo" />
+{%endblock%}
+
+
+{%block pagActiva%}
+<a href="index.php">Home</a>
+<a href="#">Sobre Nosotros</a>
+{{parent()}}
+{%endblock%}
+
+{%block cuerpoGrande%}
+<h1>Perfil de {{user.usname}}{%if user.rango == 4%} - Superusuario{%endif%}{%if user.rango == 3%} - Gestor del sitio{%endif%}{%if user.rango == 2%} - Moderador{%endif%}</h1>
+<div id="tipoUser" class="opcionesUser">
+    {%if user.rango >= 4%}
+    <div>
+        <h3>Acciones de Superusuario</h3>
+        <ul>
+            <li><a href="listaUsuarios.php">Lista de Usuarios</a></li>
+        </ul>
+    </div>
+    {%endif%}
+
+    {%if user.rango >= 3%}
+    <div>
+        <h3>Acciones de Gestor del sitio</h3>
+        <ul>
+            <li><a href="listaProductos.php">Lista de Productos</a></li>
+        </ul>
+    </div>
+    {%endif%}
+
+    {%if user.rango >= 2%}
+    <div>
+        <h3>Acciones de Moderador</h3>
+        <ul>
+            <li><a href="listaComentarios.php">Ver todos los comentarios</a></li>
+        </ul>
+    </div>
+    {%endif%}
+</div>
+
+<form action="perfil.php" method="post">
+    <div class ="container-form">
+        <div class="datoFirst">
+            <label for="uname"> Nombre de usuario: </label> <br>
+            <input type="text" id="usname" name="usname" value="{{user.usname}}" disabled /> <br>
+        </div>
+
+        <div class="dato">
+            <label for="pass"> Contraseña antigua: </label> <input type="password" name="contraseniaAntigua"> <br>
+        </div>
+
+        <div class="dato">
+            <label for="pass"> Contraseña nueva: </label> <input type="password" name="contraseniaNueva"> <br>
+        </div>
+        <div class="dato">
+            <label for="pass"> Repite la contraseña: </label> <input type="password" name="repeatContraseniaNueva"> <br>
+        </div>
+
+        <div class="dato">
+            <label for="email"> Correo electronico: </label> <br>
+            <input type="text" id="email" name="email" value="{{user.email}}"/> <br>
+        </div>
+
+        <div class="dato">
+            <label for="fname"> Nombre: </label> <br>
+            <input type="text" name="name" value="{{user.nombre}}"/> <br>
+        </div>
+
+        <div class="dato">
+            <label for="sname"> Apellido: </label> <br>
+            <input type="text" name="sname" value="{{user.apellido}}"/> <br>
+        </div>
+
+        <div class="dato">
+            <label for="bday"> Fecha de nacimiento: </label> <br>
+            <input type="date" name="cumple" value="{{user.fechaNacimiento}}"/> <br>
+        </div>
+
+        <div class="datoGenero">
+            <label for="genero" class="genero"> Genero: </label> <br>
+            <select name="genero" class="selGenero">
+                <option value="default" selected>---</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+                <option value="Otro">Otro</option>
+            </select>
+        </div>
+
+        <div class="botones">
+            <button type="submit" class="modifBoton">Modificar Datos</button>
+            <button type="button" class="cancel" onclick="location.href='index.php'">Cancelar</button>
+        </div>
+    </div>
+</form>
+{%endblock%}

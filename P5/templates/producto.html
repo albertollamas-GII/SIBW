@@ -1,0 +1,146 @@
+{%extends "padre.html"%}
+
+
+{%block archivosCSS%}
+{{parent()}}
+<link rel="stylesheet" href="../css/producto.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{%endblock%}
+   
+{%block scripts%}
+<script src="../js/comentarios.js" async></script>
+<script src="../js/resaltarBusqueda.js" defer></script>
+<script src="../js/mapa.js" async></script>
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+{%endblock%}
+    
+{%block titulo%}
+    {{parent()}} > {{producto.nombreProducto}}
+{%endblock%}
+
+{%block logoHeader%}
+<img src="../images/logo.png" class="logo" />
+{%endblock%}
+
+
+{%block pagActiva%}
+<a href="index.php">Home</a>
+<a href="#">Sobre Nosotros</a>
+{{parent()}}
+{%endblock%}
+
+{%block cuerpoGrande%} 
+<div class="container-detallado">
+    
+    
+    <div class="container-imagenes">
+        {%for img in imagenes|slice(0,(imagenes|length-1))%}
+        <img src="{{img.src}}" class="{{img.class}}" />
+        {%endfor%}
+    </div>
+
+    
+    <h1>{{producto.nombreProducto}}</h1>
+    <h2>{{producto.marca}}</h2>
+    <h2>{{producto.precio}} €</h2>
+    {%if etiquetas|length > 0%}<h4>{%for i in 0..etiquetas|length-1%}#{{etiquetas[i]}} {%endfor%}</h4>{%endif%}
+    {%if user.rango >= 3%}
+    <div class="editDelete">
+    <button class="modifBoton" > <a href={{"editProducto.php?pr=#{producto.idProducto}"}}>Editar Producto <i class='far fa-edit'></i></a></button>
+    <button class="modifBoton"> <a href={{"editProducto.php?pr=#{producto.idProducto}&rmv"}}>Borrar Producto <i class='far fa-trash-alt'></i></a></button>
+    </div>
+    {%endif%}
+    <p id="cuerpoProducto">
+        {{producto.cuerpo}}
+    </p>
+
+
+    <!--Comentarios-->
+    <div class="div-boton">
+        <button type="button" id="mostrarComentarios" class="boton">Mostrar Comentarios</button>
+    </div>
+
+    <div class="container-comentarios" id="seccionComentarios">
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="cerrar"> &times; </span>
+                <h3> ERROR AL ENVIAR COMENTARIO: INTRODUCE LOS DATOS CORRECTAMENTE </h3>
+            </div>
+        </div>
+        
+        <div class="feedComentarios" id="feedComentarios">
+            <div id="palabrasBan">{%for i in 0..baneadas|length-1%}{%if i < baneadas|length-1%}{{baneadas[i]}}-{%else%}{{baneadas[i]}}{%endif%}{%endfor%}</div>
+            
+            {%if comentarios|length == 0%}
+            <h2>No hay comentarios aún...</h2>
+            {%endif%}
+            
+            
+            {%for comentario in comentarios%}
+            <div class="comentarioPublicado">
+                <div class="container-username">
+                    <img src="../images/userPhoto.jpg">
+                    <p class="autor">{{comentario.usname}}</p>
+                    {%if user.rango>=2%}
+                        <div class="editDeleteComent">
+                            <button class="modifBotonComent"><a href={{"editComentario.php?id=#{comentario.idComentario}&pr=#{producto.idProducto}"}}><i class='far fa-edit'></i></a></button>
+                            <button class="modifBotonComent"><a href={{"editComentario.php?id=#{comentario.idComentario}&pr=#{producto.idProducto}&rmv"}}><i class='far fa-trash-alt'></i></a></button>
+                        </div>
+                    {%endif%}
+                </div>
+                <p class="fecha">{{comentario.fecha}}</p>
+                <p class="text">{{comentario.cuerpo}}</p>
+            </div>
+            {%endfor%}
+        </div>
+
+        <hr class="divider">
+
+        {%if user == "Empty" %}
+        <h2>Debes estar registrado para poder escribir tu reseña</h2>
+        {%else%}
+        <h2>Escribe tu reseña</h2>
+        <form class="nuevoComentario" id="nuevoComentario" action={{"producto.php?pr=#{producto.idProducto}"}} method="post">
+            <!-- <label for="username" class="username">
+                <h4>Escoja su nombre público(*):</h4>
+                <p id="usuarioErroneo" class="usuarioErroneo"></p>
+            </label><br>
+            <input type="text" id="username" name="username" class="textField"><br>
+            <hr class="dividerT">
+            <label for="email" class="email">
+                <h4 id="h4mail">Email(*):</h4>
+                <p id="emailErroneo" class="emailErroneo"></p>
+            </label><br>
+            <input type="text" id="email" name="email" class="textField"> -->
+            <hr class="dividerT">
+            <textarea id="comentario" name="comentario" placeholder="Escribe tu comentario aquí...(*)"
+                class="comentario"></textarea><br>
+            <button type="submit" id="enviarComentario" class="botonEnviar">Enviar Comentario</button>
+        </form>
+        {%endif%}
+    </div>
+
+</div>
+<div id="cadenaBusqueda">{{cadena}}</div>
+{%endblock%}
+   
+{%block firstImageLateral%}
+    {%for img in imagenes|slice((imagenes|length-1),imagenes|length)%}
+    <h3>{{img.nombreImagen}}</h3><br>
+    <a target="_blank"
+        href="{{img.href}}">
+        <img src="{{img.src}}"> </a>
+    {%endfor%}
+{%endblock%}
+
+
+{%block barraLateral%}
+    {{parent()}}
+
+    <div class="social-media">
+        <a href="https://www.facebook.com" target="_blank" class="fa fa-facebook"></a>
+        <a href="https://www.twitter.com" target="_blank" class="fa fa-twitter"></a>
+        <a href="http://www.instagram.com" target="_blank" class="fa fa-instagram"></a>
+        <a href="producto-imprimir.php?pr={{producto.idProducto}}" target="_blank" class="fa fa-print"></a>
+    </div>
+{%endblock%}
